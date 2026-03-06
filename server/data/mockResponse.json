@@ -1,0 +1,32 @@
+{
+  "requestId": "uuid-12345",
+  "mode": "sync | stream | async",
+  "status": "success | pending | error",
+  "tools": [
+    {
+      "toolName": "HS Prediction",
+      "type": "prediction",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "hsCode": "1001",
+        "confidence": 0.95
+      }
+    },
+    {
+      "toolName": "Structured Response Formatter",
+      "type": "structured",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "formattedOutput": {
+          "hsCode": "1001",
+          "productName": "Wheat",
+          "category": "Agriculture"
+        }
+      }
+    }
+  ],
+  "timestamp": "2026-02-18T12:30:00Z",
+  "error": null
+}

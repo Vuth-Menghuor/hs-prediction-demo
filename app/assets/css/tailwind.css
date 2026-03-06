@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563eb;
+}
+
+/* Thin — 100 */
+@font-face {
+  font-family: "Nekst";
+  /* moved to public/fonts so use absolute path */
+  src: url("/fonts/Fontspring-DEMO-nekst-thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light — 300 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular — 400 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium — 500 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Semibold — 600 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold — 700 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black — 900 */
+@font-face {
+  font-family: "Nekst";
+  src: url("/fonts/Fontspring-DEMO-nekst-black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ensure the Nekst family is available under the name we use in Tailwind */
+/* \`font-family: "Nekst"\` is already declared above for each weight */
+
+/* add an explicit utility override so Vuetify's own font rule can't win */
+.font-nekst {
+  font-family: "Nekst", sans-serif !important;
+}

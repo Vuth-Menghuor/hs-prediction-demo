@@ -1,0 +1,34 @@
+meta {
+  name: Generate a chat message
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:11434/api/chat
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "model": "qwen3.5:0.8b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello"
+      }
+    ],
+    "stream": false,
+    "think": false
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}
