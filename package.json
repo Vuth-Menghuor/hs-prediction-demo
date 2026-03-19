@@ -1,5 +1,6 @@
 {
-  "name": "hs-prediction-demo",
+  "name": "customs-ai-assistant",
+  "description": "Customs AI Assistant — an HS-code classification and assistant chatbot",
   "type": "module",
   "private": true,
   "scripts": {

@@ -1,78 +1,28 @@
-// ─── Raw API response types ───────────────────────────────────────────────────
+// ─── Agent API (wire format) ──────────────────────────────────────────────────
+export type {
+  ToolType,
+  ToolStatus,
+  ToolMode,
+  StreamChunk,
+  ToolResult,
+  ApiResponse,
+} from "./agent/api";
 
-export interface ToolResult<T = unknown> {
-  toolName: string;
-  type: string;
-  mode: string;
-  status: "success" | "error";
-  data: T;
-}
+// ─── Tool data shapes ─────────────────────────────────────────────────────────
+export type { WorkflowData } from "./tool/workflow";
+export type { OCRData } from "./tool/ocr";
+export type { HSPredictionData, FuturePredictionData } from "./tool/prediction";
+export type { StructuredOutputData } from "./tool/structured";
 
-export interface ApiResponse {
-  requestId: string;
-  mode: string;
-  status: "success" | "error";
-  tools: ToolResult[];
-}
-
-// ─── Domain types ─────────────────────────────────────────────────────────────
-
-export interface HSPrediction {
-  hsCode: string;
-  confidence: number;
-}
-
-export interface StructuredOutput {
-  productName: string;
-  hsCode: string;
-  category: string;
-}
-
-export interface PredictionMeta {
-  requestId: string;
-  mode: string;
-  status: "success" | "error";
-}
+// ─── HS prediction domain ─────────────────────────────────────────────────────
+// Re-export legacy aliases so existing components don't break
+export type { HSPrediction, PredictionMeta } from "./prediction/hs";
 
 // ─── UI types ─────────────────────────────────────────────────────────────────
-
-export type ViewMode = "Card" | "Table";
-
-export type ConfidenceLevel = "high" | "medium" | "low";
-
-export interface ConfidenceInfo {
-  level: ConfidenceLevel;
-  percent: number;
-  label: string;
-  color: string;
-}
+export type { ViewMode, ConfidenceLevel, ConfidenceInfo } from "./ui/types";
 
 // ─── Chat types ───────────────────────────────────────────────────────────────
+export type { ChatMessage, ChatResponse } from "./chat/message";
 
-export interface ChatMessage {
-  id: string;
-  role: "user" | "assistant";
-  content: string;
-  timestamp: Date;
-}
-
-export interface ChatResponse {
-  message: string;
-  requestId: string;
-}
-
-// ─── Ollama types ─────────────────────────────────────────────────────────────
-
-export interface OllamaChatMessage {
-  role: "user" | "assistant" | "system";
-  content: string;
-}
-
-export interface OllamaMetrics {
-  totalDuration?: number;
-  loadDuration?: number;
-  promptEvalCount?: number;
-  promptEvalDuration?: number;
-  evalCount?: number;
-  evalDuration?: number;
-}
+// ─── LLM / Ollama types ───────────────────────────────────────────────────────
+export type { OllamaChatMessage, OllamaMetrics } from "./llm/ollama";

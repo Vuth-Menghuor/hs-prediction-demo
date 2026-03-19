@@ -8,5 +8,8 @@ export default {
         nekst: ["Nekst", "sans-serif"],
       },
     },
+    fontFamily: {
+      sans: ["Arial", "Helvetica", "sans-serif"],
+    },
   },
 };

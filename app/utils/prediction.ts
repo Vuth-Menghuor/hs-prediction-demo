@@ -1,4 +1,13 @@
-import type { ConfidenceInfo } from "~/types";
+import type { ConfidenceInfo, HSPrediction } from "~/types";
+
+// ─── Formatters ───────────────────────────────────────────────────────────────
+
+export function formatVolume(volume: number | undefined): string {
+  if (volume === undefined) return "—";
+  return new Intl.NumberFormat().format(volume);
+}
+
+// ─── Confidence ───────────────────────────────────────────────────────────────
 
 export function getConfidenceInfo(
   confidence: number | undefined,
@@ -29,6 +38,23 @@ export function getConfidenceInfo(
   };
 }
 
-export function getStatusColor(status: string | undefined): string {
-  return status === "success" ? "success" : "error";
+// ─── Table row builders ───────────────────────────────────────────────────────
+
+export function buildPredictionRows(prediction: HSPrediction | null) {
+  return [
+    {
+      field: "HS Code",
+      value: prediction?.hsCode ?? "—",
+      source: "prediction" as const,
+      large: true,
+    },
+    {
+      field: "Confidence",
+      value:
+        prediction?.confidence !== undefined
+          ? `${Math.round(prediction.confidence * 100)}%`
+          : "—",
+      source: "prediction" as const,
+    },
+  ];
 }

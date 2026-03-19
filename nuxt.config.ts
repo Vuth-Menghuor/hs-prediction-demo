@@ -3,6 +3,12 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
+  // Display name shown in page title / browser tab
+  app: {
+    head: {
+      title: "Customs AI Assistant",
+    },
+  },
   runtimeConfig: {
     // server-side only
     ollama: {

@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import SourceChip from "../ui/SourceChip.vue";
+import SourceChip from "~/components/ui/SourceChip.vue";
 
 const props = defineProps<{
   field: string;
