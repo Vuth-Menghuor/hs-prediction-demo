@@ -1,0 +1,92 @@
+{
+  "requestId": "uuid-12345",
+  "mode": "sync",
+  "status": "success",
+  "tools": [
+    {
+      "toolName": "Intent / Workflow Planner",
+      "type": "workflow",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "intent": "Generate HS Report",
+        "workflowSteps": ["Extract data", "Predict HS codes", "Generate report"]
+      }
+    },
+    {
+      "toolName": "RAG",
+      "type": "chat",
+      "mode": "stream",
+      "status": "success",
+      "streamChunks": [
+        { "chunk": "HS code 1001", "done": false },
+        { "chunk": " is wheat.", "done": true }
+      ]
+    },
+    {
+      "toolName": "OCR",
+      "type": "ocr",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "text": "Invoice 1234: 100 units"
+      }
+    },
+    {
+      "toolName": "HS Prediction",
+      "type": "prediction",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "hsCode": "1001",
+        "confidence": 0.95
+      }
+    },
+    {
+      "toolName": "Future Prediction",
+      "type": "prediction",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "predictedVolume": 1500,
+        "year": 2026
+      }
+    },
+    {
+      "toolName": "Report Generation",
+      "type": "report",
+      "mode": "async",
+      "status": "pending",
+      "taskId": "task-789"
+    },
+    {
+      "toolName": "Chart Generation",
+      "type": "chart",
+      "mode": "async",
+      "status": "pending",
+      "taskId": "task-790"
+    },
+    {
+      "toolName": "Image Generation",
+      "type": "image",
+      "mode": "async",
+      "status": "pending",
+      "taskId": "task-791"
+    },
+    {
+      "toolName": "Structured Response Formatter",
+      "type": "structured",
+      "mode": "sync",
+      "status": "success",
+      "data": {
+        "formattedOutput": {
+          "hsCode": "1001",
+          "productName": "Wheat",
+          "category": "Agriculture"
+        }
+      }
+    }
+  ],
+  "timestamp": "2026-02-18T12:30:00Z",
+  "error": null
+}
